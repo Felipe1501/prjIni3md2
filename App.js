@@ -1,5 +1,5 @@
 import {React, useState} from 'react';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image } from 'react-native';
 
 export default function App() {
   const [papinho1, setPapinho1] = useState();
@@ -13,6 +13,12 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Text style={styles.texto}>METEU ESSA?</Text>
+      <Image
+        style={styles.logo}
+        source={{
+          uri: 'https://p2.trrsf.com/image/fget/cf/1200/675/middle/images.terra.com/2022/03/01/the-batman-critica-filme-robert-pattinson.jpeg',
+        }}
+      />
       <View style={styles.bloco}>
         <Text style={styles.textoBloco}>QUE PAPINHO 1</Text>
         <TextInput 
@@ -81,5 +87,9 @@ const styles = StyleSheet.create({
   textoBotao:{
     color:"#fff",
     fontSize:30
+  },
+  logo:{
+    width: 80,
+    height: 60
   }
 });
