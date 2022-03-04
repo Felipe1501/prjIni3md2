@@ -90,6 +90,6 @@ const styles = StyleSheet.create({
   },
   logo:{
     width: 80,
-    height: 60
+    height: 70
   }
 });
