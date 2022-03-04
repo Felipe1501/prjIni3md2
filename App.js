@@ -1,7 +1,15 @@
-import { StatusBar } from 'expo-status-bar';
+import {React, useState} from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
 
 export default function App() {
+  const [papinho1, setPapinho1] = useState();
+  const [papinho2, setPapinho2] = useState();
+  const [result, setResultado] = useState();
+
+  function somar(){
+    setResultado (parseFloat (papinho1) + parseFloat(papinho2));
+  }
+
   return (
     <View style={styles.container}>
       <Text style={styles.texto}>METEU ESSA?</Text>
@@ -10,6 +18,9 @@ export default function App() {
         <TextInput 
           style={styles.input}
           keyboardType="numeric"
+          value={papinho1}
+          placeholder='VALOR 1:'
+          onChangeText={(texto)=>setPapinho1(texto)}
       />
     </View>
     <View style={styles.bloco}>
@@ -17,12 +28,20 @@ export default function App() {
         <TextInput 
           style={styles.input}
           keyboardType="numeric"
+          placeholder='VALOR 2:'
+          value={papinho2}
+          onChangeText={(texto)=>setPapinho2(texto)}
         />
       </View>
       <View style={styles.bloco}>
-        <TouchableOpacity style={styles.botao}>
-            <Text style={styles.textoBotao}>Somar</Text>
+        <TouchableOpacity 
+        style={styles.botao}
+        onPress={somar}>
+            <Text style={styles.textoBotao}>SOMAR</Text>
         </TouchableOpacity>
+      </View>
+      <View style={styles.bloco}>
+        <Text style={styles.texto}>RESULTADO: {result}</Text>
       </View>
     </View>
   );
@@ -40,13 +59,14 @@ const styles = StyleSheet.create({
     fontSize: 30
   },
   textoBloco:{
-    fontSize:20,
+    fontSize:30,
   },
   input:{
     borderColor:'#7B68EE',
     borderWidth:2,
     fontSize:30,
-    width:'80%'
+    width:'80%',
+    textAlign: 'center'
   },
   bloco:{
     width:'100%',
