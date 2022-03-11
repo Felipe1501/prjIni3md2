@@ -1,5 +1,6 @@
 import {React, useState} from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image } from 'react-native';
+import { Button } from 'react-native-web';
 
 export default function App() {
   const [papinho1, setPapinho1] = useState();
@@ -20,6 +21,12 @@ export default function App() {
 
   function dividir(){
     setResultado (parseFloat (papinho1) / parseFloat(papinho2));
+  }
+
+  function clear(){
+    setResultado(null);
+    setPapinho1("");
+    setPapinho2("");
   }
 
   return (
@@ -82,6 +89,13 @@ export default function App() {
       <View style={styles.bloco}>
         <Text style={styles.texto}>RESULTADO: {result}</Text>
       </View>
+      <View style={styles.bloco}>
+        <TouchableOpacity 
+        style={styles.botao}
+        onPress={clear}>
+            <Text style={styles.textoBotao}>LIMPAR</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }
@@ -105,7 +119,8 @@ const styles = StyleSheet.create({
     borderWidth:2,
     fontSize:30,
     width:'80%',
-    textAlign: 'center'
+    textAlign: 'center',
+    borderRadius: 20
   },
   bloco:{
     width:'100%',
@@ -115,7 +130,8 @@ const styles = StyleSheet.create({
   botao:{
     backgroundColor:'#7B68EE',
     width:'80%',
-    textAlign:'center'
+    textAlign:'center',
+    borderRadius: 20
   },
   textoBotao:{
     color:"#fff",
@@ -124,6 +140,7 @@ const styles = StyleSheet.create({
   logo:{
     width: 80,
     height: 70,
-    margin: 5
+    margin: 5,
+    borderRadius: 20
   }
 });
