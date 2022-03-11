@@ -123,6 +123,7 @@ const styles = StyleSheet.create({
   },
   logo:{
     width: 80,
-    height: 70
+    height: 70,
+    margin: 5
   }
 });
